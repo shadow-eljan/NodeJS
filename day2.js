@@ -27,7 +27,7 @@
 // console.log("Domain: ", domain[0])
 // console.log("Rem: ", rem)
 
-let number = [1,2,3,4,5]
+// let number = [1,2,3,4,5]
 // let doublenumbers = number.map((num) => num * 2);        //creates new array
 // console.log(doublenumbers)
 
@@ -40,5 +40,15 @@ let number = [1,2,3,4,5]
 
 // number.forEach((num) => console.log(num))           //forEach == loop
 
-let newNumbers =[...number, 6,7,8];                    //SPREAD OPERATOR
-console.log(newNumbers);
+// let newNumbers =[...number, 6,7,8];                    //SPREAD OPERATOR
+// console.log(newNumbers);
+
+let colors = [12, 15, 20]
+// let red = colors[0]
+// let blue = colors[1]
+// let green = colors[2]
+
+let [red, blue, green] = colors;
+console.log(red)
+console.log(blue)
+console.log(green)
