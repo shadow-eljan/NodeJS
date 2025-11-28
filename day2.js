@@ -1,4 +1,4 @@
-let numbers = [1,2,3,4,'eljan', 'rai', true, false, null]
+// let numbers = [1,2,3,4,'eljan', 'rai', true, false, null]
 
 // numbers.push(11)             //ADD
 // numbers.push(true)
@@ -28,5 +28,17 @@ let numbers = [1,2,3,4,'eljan', 'rai', true, false, null]
 // console.log("Rem: ", rem)
 
 let number = [1,2,3,4,5]
-let doublenumbers = number.map((num) => num * 2);
-console.log(doublenumbers)
+// let doublenumbers = number.map((num) => num * 2);        //creates new array
+// console.log(doublenumbers)
+
+// let evenNumbers = number.filter((n) => n % 2 == 0);
+// console.log(evenNumbers);
+
+// let sum = number.reduce((acc, n) => acc + n, 5);    //ACCUMULATOR (acc) initial is 0, 
+//                                                   //value after comma(,) is initial value
+// console.log(sum);   
+
+// number.forEach((num) => console.log(num))           //forEach == loop
+
+let newNumbers =[...number, 6,7,8];                    //SPREAD OPERATOR
+console.log(newNumbers);
