@@ -82,10 +82,3 @@ let users = {
     // if same variable and key name
 };
 console.log(users)
-
-let checkObject = Object.users.keys().length;
-if(checkObject == 0){
-    console.log("EMpty")
-}else{
-    console.log("NOt")
-}
