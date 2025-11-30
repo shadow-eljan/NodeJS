@@ -54,11 +54,11 @@
 // console.log(green)
 
 //OBJECT 
-let user ={
-    username: "John doe",
-    email: "doe@gmail.com",
-    password: "12345",
-};
+// let user ={
+//     username: "John doe",
+//     email: "doe@gmail.com",
+//     password: "12345",
+// };
 // console.log(user.username);
 // console.log(user);
 
@@ -67,5 +67,25 @@ let user ={
 // let newUser = {...user, age: 12, isVerified: true}
 // console.log(newUser);
 
-// let {email, password} = user;
-// console.log(email, password);
+// let {email: useremail, password} = user;
+// console.log(useremail, password);
+
+let username = "Ram";
+let password= "ram123";
+
+let users = {
+    // username: username,
+    // password: password,
+    // we can do
+    username,
+    password,
+    // if same variable and key name
+};
+console.log(users)
+
+let checkObject = Object.users.keys().length;
+if(checkObject == 0){
+    console.log("EMpty")
+}else{
+    console.log("NOt")
+}
