@@ -13,7 +13,13 @@ const server = http.createServer((req,res) => {
     res.setHeader("Content-Type", "application/json");
     if(method == "GET"){
         if(urlobj.pathname == "/api/notes"){
-            res.end(JSON.stringify(notes));
+            const noteId = urlobj.query?.id; // ? needed if there is no object 
+            if(noteId){
+                const filterNotes = notes.filter((note) => note.id == noteId)
+                res.end(JSON.stringify(filterNotes));
+            }else{
+                res.end(JSON.stringify(notes));
+            }
         }
     }else{
         
