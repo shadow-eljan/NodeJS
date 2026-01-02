@@ -1,43 +1,34 @@
-import notes from '../Models/Notes.js';
+import Note from  '../Models/Notes.js';
 
-const getNotes = (req, res) => {
+const getNotes = async (req, res) => {
     const getid = req.query.id;
     if(getid >= 0){
-        const filternote = notes.filter((f)=> f.id == getid);
-        res.send(filternote);
+        const viewNotes = await Note.findById(getid);
+        res.send(viewNotes);
         }else{
+            const notes = await Note.find();
         res.send(notes);
     }
 };
 
-const addNotes = (req, res) => {
+const addNotes = async (req, res) => {
     const note = req.body;
-    notes.push({id: notes.length + 1, ...note});
-    res.status(201).send({message: "Note created."})
+    const addedNote = await Note.create(note);
+    res.status(201).send({message: `Note Created. ${addedNote}`})
 };
 
-const updateNotes = (req, res) => {
-    const updateID = req.query.id;
-    const index = notes.findIndex((f) => f.id == updateID);
-    if(index >= 0){
-        const note = req.body;
-        notes[index].title = note.title ?? notes[index].title;
-        notes[index].content =note.content ?? notes[index].content;
-        res.status(200).send({ message: `id: ${updateID} updated successfully.` });
-    }else{
-        res.status(404).send({error: "Not found."})
-    }
+const updateNotes = async (req, res) => {
+    const updateID = req.params.id;
+    const data = req.body;
+    const updatedNote = await Note.findByIdAndUpdate(updateID, data, {new: true});
+    res.status(200).send({message: `Updated Successfully. Note: ${updatedNote}`})
+
 };
 
-const deleteNotes = (req, res) =>{
-    const deleteID = req.query.id;
-    const index = notes.findIndex((f)=> f.id == deleteID);
-    if(index >= 0){
-        notes.splice(index,1);
-        res.status(200).send({message: `id: ${deleteID} deleted successfully.`});
-    }else{
-        res.status(404).send({error: "Not found."})
-    }
+const deleteNotes = async (req, res) =>{
+    const deleteID = req.params.id;
+    const deletedNote = await Note.findByIdAndDelete(deleteID);
+    res.status(200).send({message: `Deleted Successfully. Note: ${deletedNote}`})
 };
 
 export {getNotes, addNotes, updateNotes, deleteNotes}
