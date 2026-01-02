@@ -1,9 +1,18 @@
-const notes = [
-    {
-        id: 1,
-        title: "Totle 1",
-        content: "Content 1"
+import mongoose from  "mongoose"
+
+const noteSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+        minlength: 3,
     },
-    {id: 2, title: "Title 2", content: "Content 2"},
-]
-export default notes;
+    content: {
+        type: String,
+        required: true,
+        minlength: 3,
+    },
+});
+
+const Note = mongoose.model("note", noteSchema);
+
+export default Note;
