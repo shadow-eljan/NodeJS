@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", getNotes)
 router.post("/", addNotes);
-router.put("/", updateNotes);
-router.delete("/", deleteNotes);
+router.put("/:id", updateNotes);
+router.delete("/:id", deleteNotes);
 
 export default router;
